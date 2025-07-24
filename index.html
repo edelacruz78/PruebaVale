@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#FF1744">
-    <title>XV Años - Valeria Isabel</title>
+    <title>15 Años - Valeria Isabel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kablammo&display=swap" rel="stylesheet">
@@ -300,39 +300,42 @@
 
 
         .countdown {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            max-width: 300px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .countdown-item {
             background: linear-gradient(135deg, var(--amarillo-carnaval), var(--naranja-carnaval));
             border-radius: 15px;
-            padding: 15px 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            min-width: 100px;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                0 0 20px var(--amarillo-carnaval);
             transition: all 0.3s ease;
         }
 
-        .countdown-item:active {
-            transform: scale(0.95);
+        .countdown-item:hover {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.3),
+                0 0 30px var(--naranja-carnaval);
         }
 
         .countdown-number {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-size: 2.5rem;
             font-weight: 700;
             color: #FFFFFF;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            line-height: 1;
         }
 
         .countdown-label {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #FFFFFF;
             text-transform: uppercase;
             font-weight: 600;
-            margin-top: 5px;
         }
 
         /* Galería - Mobile First */
@@ -383,11 +386,10 @@
             transform: scale(0.9);
         }
 
-        /* Botón RSVP - Mobile First */
+        /* Botón RSVP -*/
         .rsvp-section {
             text-align: center;
-            margin: 40px 0;
-            padding: 0 15px;
+            margin: 60px 0;
         }
 
         .rsvp-button {
@@ -400,24 +402,24 @@
                 var(--verde-carnaval) 100%);
             background-size: 200% 200%;
             color: white;
-            padding: 16px 35px;
+            padding: 20px 50px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            box-shadow: 
+                0 5px 20px rgba(0, 0, 0, 0.3),
+                0 0 30px var(--fucsia-carnaval);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             animation: rainbowShift 3s linear infinite;
-            width: 100%;
-            max-width: 300px;
-            /* Touch feedback */
-            -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
         }
 
-        .rsvp-button:active {
-            transform: scale(0.98);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        .rsvp-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.4),
+                0 0 50px var(--amarillo-carnaval);
         }
 
         /* Footer - Mobile First */
