@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XV Años - Valeria Isabel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kablammo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,6 +22,15 @@
             --morado-oscuro: #4a148c;
             --glass: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Configuración específica para Kablammo */
+        .kablammo-title {
+            font-family: "Kablammo", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "MORF" 0;
         }
 
         body {
@@ -159,20 +171,34 @@
         }
 
         h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 4rem;
-            color: white;
+            font-family: "Kablammo", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "MORF" 20;
+            font-size: 6.5rem;
+            background: linear-gradient(135deg, var(--champagne) 0%, #ffd700 50%, var(--champagne) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             margin-bottom: 10px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-            animation: shimmer 3s ease-in-out infinite;
+            text-shadow: 
+                3px 3px 0px var(--lila),
+                6px 6px 0px rgba(177, 156, 217, 0.5),
+                9px 9px 15px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s ease-in-out infinite;
+            position: relative;
+            display: inline-block;
         }
 
-        @keyframes shimmer {
+        @keyframes bounce {
             0%, 100% {
-                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+                transform: translateY(0);
             }
             50% {
-                text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.8);
+                transform: translateY(-10px);
             }
         }
 
@@ -261,10 +287,16 @@
         }
 
         .countdown-title {
-            font-family: 'Dancing Script', cursive;
+            font-family: "Kablammo", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "MORF" 15;
             font-size: 2.5rem;
             color: var(--morado-oscuro);
             margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .countdown {
@@ -301,11 +333,20 @@
 
         .gallery-title {
             text-align: center;
-            font-family: 'Dancing Script', cursive;
+            font-family: "Kablammo", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "MORF" 15;
             font-size: 2.5rem;
-            color: white;
+            background: linear-gradient(135deg, white 0%, var(--champagne) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 30px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .gallery-grid {
@@ -365,7 +406,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
-                font-size: 3rem;
+                font-size: 4rem;
             }
 
             .subtitle {
@@ -414,7 +455,7 @@
                 <img src="https://i.imgur.com/mw8IXDT.png" alt="Valeria Isabel">
             </div>
             
-            <h1>Valeria Isabel</h1>
+            <h1>Vale's Quince</h1>
             <p class="subtitle">Una celebración mágica e inolvidable</p>
             <span class="badge">XV AÑOS</span>
         </header>
@@ -529,8 +570,8 @@
         // WhatsApp RSVP
         document.getElementById('rsvp-btn').addEventListener('click', function(e) {
             e.preventDefault();
-            const phoneNumber = '573116356809';
-            const message = '¡Hola! Confirmo mi asistencia. No me lo perdería por nada! 💜';
+            const phoneNumber = '573215393137';
+            const message = '¡Hola! Confirmo mi asistencia a los XV años de Valeria Isabel el 23 de Agosto. ¡Será una noche inolvidable! 💜';
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
