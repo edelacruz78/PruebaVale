@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#FF1744">
+    <title>XV Años - Valeria Isabel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kablammo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Elimina highlight azul en iOS */
+        }
+
+        :root {
+            --lila: #b19cd9;
+            --champagne: #f7e7ce;
+            --azul-claro: #a8d8ea;
+            --morado-oscuro: #4a148c;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            /* Colores Carnaval de Barranquilla */
+            --rojo-carnaval: #FF1744;
+            --amarillo-carnaval: #FFD600;
+            --verde-carnaval: #00E676;
+            --azul-carnaval: #2979FF;
+            --naranja-carnaval: #FF6D00;
+            --fucsia-carnaval: #F50057;
+        }
+
+        /* Smooth scrolling para mejor experiencia móvil */
+        html {
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FF1744 0%, #FFD600 25%, #00E676 50%, #2979FF 75%, #F50057 100%);
+            background-size: 400% 400%;
+            animation: carnavalGradient 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            /* Prevenir zoom en iOS */
+            touch-action: pan-y;
+        }
+
+        @keyframes carnavalGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Partículas de fondo - Reducidas para mejor performance móvil */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            will-change: transform; /* Optimización para animaciones */
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container principal - Mobile First */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header animado - Mobile First */
+        .header {
+            text-align: center;
+            padding: 30px 10px;
+            position: relative;
+        }
+
+        /* Eliminar floating elements en móvil para mejor performance */
+        .floating-element {
+            display: none;
+        }
+
+        /* Foto de la quinceañera - Optimizada para móvil */
+        .quinceanera-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid var(--amarillo-carnaval);
+            box-shadow: 
+                0 0 20px var(--fucsia-carnaval),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .quinceanera-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover solo en desktop */
+        @media (hover: hover) {
+            .quinceanera-photo:hover img {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Título principal - Mobile First */
+        h1 {
+            font-family: "Kablammo", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings: "MORF" 20;
+            font-size: clamp(2.5rem, 10vw, 6.5rem); /* Responsive font size */
+            background: linear-gradient(45deg, 
+                var(--rojo-carnaval) 0%, 
+                var(--amarillo-carnaval) 20%, 
+                var(--verde-carnaval) 40%, 
+                var(--azul-carnaval) 60%, 
+                var(--fucsia-carnaval) 80%, 
+                var(--rojo-carnaval) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            filter: drop-shadow(2px 2px 0px #000) 
+                    drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5));
+            animation: bounce 2s ease-in-out infinite, rainbowShift 5s linear infinite;
+            position: relative;
+            display: inline-block;
+            line-height: 1.1;
+        }
+
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #FFFFFF;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--amarillo-carnaval), var(--naranja-carnaval));
+            color: #FFFFFF;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sección de detalles - Mobile First con mejor espaciado */
+        .details-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 0 5px;
+        }
+
+        .detail-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(255, 215, 0, 0.3) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            border: 2px solid var(--amarillo-carnaval);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* Touch feedback */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Active state para feedback táctil */
+        .detail-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .detail-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .detail-title {
+            font-weight: 600;
+            color: var(--azul-carnaval);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-info {
+            color: #000;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Countdown - Mobile First */
+        .countdown-section {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(255, 109, 0, 0.3) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid var(--naranja-carnaval);
+            border-radius: 25px;
+            padding: 25px 15px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-title {
+            font-family: "Kablammo", system-ui;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            background: linear-gradient(45deg, var(--rojo-carnaval), var(--fucsia-carnaval));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, var(--amarillo-carnaval), var(--naranja-carnaval));
+            border-radius: 15px;
+            padding: 15px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:active {
+            transform: scale(0.95);
+        }
+
+        .countdown-number {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 700;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* Galería - Mobile First */
+        .gallery-section {
+            margin: 30px 0;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-family: "Kablammo", system-ui;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            background: linear-gradient(45deg, var(--verde-carnaval), var(--azul-carnaval));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 0 5px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, 
+                var(--fucsia-carnaval) 0%, 
+                var(--azul-carnaval) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid #FFFFFF;
+            border-radius: 15px;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:active {
+            transform: scale(0.9);
+        }
+
+        /* Botón RSVP - Mobile First */
+        .rsvp-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 0 15px;
+        }
+
+        .rsvp-button {
+            display: inline-block;
+            background: linear-gradient(45deg, 
+                var(--rojo-carnaval) 0%, 
+                var(--fucsia-carnaval) 25%, 
+                var(--naranja-carnaval) 50%, 
+                var(--amarillo-carnaval) 75%, 
+                var(--verde-carnaval) 100%);
+            background-size: 200% 200%;
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            animation: rainbowShift 3s linear infinite;
+            width: 100%;
+            max-width: 300px;
+            /* Touch feedback */
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .rsvp-button:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer - Mobile First */
+        .footer {
+            text-align: center;
+            padding: 30px 15px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 481px) {
+            .container {
+                padding: 20px;
+            }
+
+            .details-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .countdown {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 500px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+
+            .quinceanera-photo {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 60px 20px;
+            }
+
+            /* Mostrar floating elements en desktop */
+            .floating-element {
+                display: block;
+                position: absolute;
+                animation: floatElement 6s ease-in-out infinite;
+            }
+
+            .floating-element:nth-child(1) {
+                top: 10%;
+                left: 10%;
+                font-size: 35px;
+                animation-delay: 0s;
+            }
+
+            .floating-element:nth-child(2) {
+                top: 20%;
+                right: 15%;
+                font-size: 25px;
+                animation-delay: 1.5s;
+            }
+
+            .floating-element:nth-child(3) {
+                bottom: 20%;
+                left: 15%;
+                font-size: 40px;
+                animation-delay: 3s;
+            }
+
+            .floating-element:nth-child(4) {
+                bottom: 10%;
+                right: 10%;
+                font-size: 30px;
+                animation-delay: 4.5s;
+            }
+
+            @keyframes floatElement {
+                0%, 100% {
+                    transform: translateY(0) rotate(0deg);
+                }
+                50% {
+                    transform: translateY(-20px) rotate(180deg);
+                }
+            }
+
+            .quinceanera-photo {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+
+            .details-section {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                margin: 40px 0;
+            }
+
+            .detail-card {
+                padding: 30px;
+                border: 3px solid var(--amarillo-carnaval);
+            }
+
+            .detail-card:hover {
+                transform: translateY(-10px) rotate(2deg);
+                background: linear-gradient(135deg, 
+                    rgba(255, 255, 255, 1) 0%, 
+                    rgba(0, 230, 118, 0.3) 100%);
+                border-color: var(--verde-carnaval);
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.3),
+                    0 0 30px var(--verde-carnaval);
+            }
+
+            .countdown-section {
+                padding: 40px;
+                margin: 40px 0;
+            }
+
+            .countdown {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                max-width: none;
+            }
+
+            .countdown-item {
+                min-width: 100px;
+                padding: 20px;
+            }
+
+            .countdown-item:hover {
+                transform: scale(1.1) rotate(-5deg);
+                box-shadow: 
+                    0 8px 25px rgba(0, 0, 0, 0.3),
+                    0 0 30px var(--naranja-carnaval);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .gallery-item {
+                padding: 30px;
+                font-size: 3rem;
+            }
+
+            .gallery-item:hover {
+                transform: scale(1.1) rotate(10deg);
+                background: linear-gradient(135deg, 
+                    var(--amarillo-carnaval) 0%, 
+                    var(--rojo-carnaval) 100%);
+                box-shadow: 
+                    0 10px 30px rgba(0, 0, 0, 0.4),
+                    0 0 40px var(--amarillo-carnaval);
+            }
+
+            .rsvp-button {
+                padding: 20px 50px;
+                font-size: 1.2rem;
+                width: auto;
+            }
+
+            .rsvp-button:hover {
+                transform: translateY(-5px) scale(1.05);
+                box-shadow: 
+                    0 10px 40px rgba(0, 0, 0, 0.4),
+                    0 0 50px var(--amarillo-carnaval);
+            }
+        }
+
+        /* Ultra wide screens */
+        @media (min-width: 1200px) {
+            h1 {
+                font-size: 6.5rem;
+            }
+        }
+
+        /* Landscape mode optimizations */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .header {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .quinceanera-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .countdown-section {
+                padding: 20px;
+            }
+        }
+
+        /* High resolution screens */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .particle {
+                width: 2px;
+                height: 2px;
+            }
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partículas de fondo -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <!-- Header animado -->
+        <header class="header">
+            <div class="floating-element">💜</div>
+            <div class="floating-element">✨</div>
+            <div class="floating-element">🦋</div>
+            <div class="floating-element">💎</div>
+            
+            <!-- Foto de la quinceañera -->
+            <div class="quinceanera-photo">
+                <img src="https://i.imgur.com/mw8IXDT.png" alt="Valeria Isabel - Quinceañera">
+            </div>
+            
+            <h1>Vale's Quince</h1>
+            <p class="subtitle">Una celebración mágica e inolvidable</p>
+            <span class="badge">XV AÑOS</span>
+        </header>
+
+        <!-- Sección de detalles -->
+        <section class="details-section">
+            <div class="detail-card" data-sound="calendar">
+                <div class="detail-icon">🗓️</div>
+                <h3 class="detail-title">Fecha</h3>
+                <p class="detail-info">Sábado, 23 de Agosto 2025</p>
+            </div>
+            
+            <div class="detail-card" data-sound="clock">
+                <div class="detail-icon">🕖</div>
+                <h3 class="detail-title">Hora</h3>
+                <p class="detail-info">7:30 PM</p>
+            </div>
+            
+            <div class="detail-card" data-sound="location">
+                <div class="detail-icon">📍</div>
+                <h3 class="detail-title">Lugar</h3>
+                <p class="detail-info">Club Sincelejo "Bar Místico", Sincelejo</p>
+            </div>
+            
+            <div class="detail-card" data-sound="dress">
+                <div class="detail-icon">👗</div>
+                <h3 class="detail-title">Código de Vestimenta</h3>
+                <p class="detail-info">Elegante, colores sugeridos: Lila, Champagne, Azul. <strong>Eso sí, no olvides ir en tenis</strong></p>
+            </div>
+        </section>
+
+        <!-- Countdown -->
+        <section class="countdown-section">
+            <h2 class="countdown-title">Faltan</h2>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">Días</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">Horas</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">0</div>
+                    <div class="countdown-label">Minutos</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">0</div>
+                    <div class="countdown-label">Segundos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería de momentos -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">Momentos Especiales</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">🎂</div>
+                <div class="gallery-item">💃</div>
+                <div class="gallery-item">🎵</div>
+                <div class="gallery-item">📸</div>
+                <div class="gallery-item">🥂</div>
+                <div class="gallery-item">🎁</div>
+            </div>
+        </section>
+
+        <!-- Botón RSVP -->
+        <section class="rsvp-section">
+            <a href="#" class="rsvp-button" id="rsvp-btn">Confirmar Asistencia</a>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Con amor, Valeria Isabel 💜</p>
+        </footer>
+    </div>
+
+    <script>
+        // Optimización: Reducir partículas en móvil
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const isMobile = window.innerWidth <= 768;
+            const particleCount = isMobile ? 20 : 50; // Menos partículas en móvil
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Countdown timer optimizado
+        function updateCountdown() {
+            const eventDate = new Date('2025-08-23T19:30:00');
+            const now = new Date();
+            const difference = eventDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+        }
+
+        // WhatsApp RSVP con feedback táctil
+        document.getElementById('rsvp-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Vibración suave en dispositivos móviles que lo soporten
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
+            }
+            
+            const phoneNumber = '573116356809';
+            const message = '¡Hola! Confirmo mi asistencia. No me lo perdería por nada! 💜';
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Animación de galería optimizada
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = 'fadeIn 0.6s ease-out forwards';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        galleryItems.forEach(item => observer.observe(item));
+
+        // Touch feedback para cards
+        const cards = document.querySelectorAll('.detail-card, .countdown-item, .gallery-item');
+        cards.forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            card.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Prevenir zoom en double tap (iOS)
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = new Date().getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Inicializar
+        createParticles
